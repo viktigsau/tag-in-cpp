@@ -13,8 +13,10 @@ bool Resizable = false;
 
 std::vector<float> Spawn = std::vector<float>(0, 0);
 
-void main() {
+int main() {
     Player player;
 
     player.init(Spawn);
+
+    return 0;
 }
