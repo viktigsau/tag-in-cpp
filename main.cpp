@@ -1,5 +1,8 @@
 #include <iostream>
 #include "window.cpp"
+#include "player.cpp"
+#include <vector>
+
 
 int Height = 100;
 int Width = 100;
@@ -8,8 +11,10 @@ int fps = 30;
 
 bool Resizable = false;
 
-void main() {
-    Window window;
+std::vector<float> Spawn = std::vector<float>(0, 0);
 
-    window.init(Height, Width, Resizable, fps);
+void main() {
+    Player player;
+
+    player.init(Spawn);
 }
