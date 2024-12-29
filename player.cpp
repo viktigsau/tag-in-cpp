@@ -1,14 +1,21 @@
 #include <iostream>
-#include <vector>
+#include <array>
 
 
 class Player {
     private:
-        std::vector<float> Position;
+        std::array<float, 2> Position;
     public:
-        void init(std::vector<float> Spawn) {
+        void init(std::array<float, 2> Spawn) {
             Position = Spawn;
+        }
 
-            std::cout << Position[0];
+        void Print() {
+            std::cout << "(" << Position[0] << ", " << Position[1] << ")" << std::endl;
+        }
+
+        void Move(std::array<float, 2> Movment) {
+            Position[0] += Movment[0];
+            Position[1] += Movment[1];
         }
 };

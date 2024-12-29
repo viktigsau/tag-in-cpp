@@ -1,7 +1,7 @@
 #include <iostream>
-#include "window.cpp"
 #include "player.cpp"
-#include <vector>
+#include <array>
+#include <SFML/Graphics.hpp>
 
 
 int Height = 100;
@@ -11,12 +11,26 @@ int fps = 30;
 
 bool Resizable = false;
 
-std::vector<float> Spawn = std::vector<float>(0, 0);
-
 int main() {
-    Player player;
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Simple Tag Game");
 
-    player.init(Spawn);
+    sf::RectangleShape rect(sf::Vector2f(100, 100));
+    rect.setFillColor(sf::Color::Blue);
+    rect.setPosition(sf::Vector2f(100, 100));
+
+    while (window.isOpen()) {
+        sf::Event event;
+
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) window.close();
+        }
+
+        window.clear();
+
+        window.draw(rect);
+
+        window.display();
+    }
 
     return 0;
 }
